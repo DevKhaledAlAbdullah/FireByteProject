@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -27,6 +28,8 @@ public class GamePlayManagerScript : MonoBehaviour
     public GameManager.Callback OnLoseGame;
     public GameManager.Callback OnWinGame;
 
+    public List<GameObject> Levels;
+
     private void Awake()
     {
         instance = this;
@@ -37,6 +40,13 @@ public class GamePlayManagerScript : MonoBehaviour
     {
         indexLevel = PlayerPrefs.GetInt(MetaData.ConstVariable.GameSetting.IndexLevel);
         inGameUI.counterLevetText.text = string.Format("{0} {1}" , MetaData.ConstVariable.GameSetting.Level ,  (indexLevel+1).ToString());
+        if (indexLevel >= Levels.Count)
+        {
+            indexLevel = 0;
+            PlayerPrefs.SetInt(MetaData.ConstVariable.GameSetting.IndexLevel, 0);
+        }
+
+        Instantiate(Levels[indexLevel], transform.parent);
     }
 
   
