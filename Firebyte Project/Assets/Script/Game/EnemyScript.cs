@@ -6,6 +6,7 @@ public class EnemyScript : MonoBehaviour
     public float currentSpeed = 8;
     public float blood = 100;
     public bool isDie = false;
+    public bool isAwake = false;
     public Collider swordCollider;
     public float Line1 = 5;
     public float Line2 = 0;
@@ -30,7 +31,10 @@ public class EnemyScript : MonoBehaviour
 
     void Update()
     {
-        if (!GamePlayManagerScript.instance.player.isPause && !isDie)
+        if (GamePlayManagerScript.instance.player.transform.position.z > transform.position.z + 15)
+            isAwake = true;
+
+        if (!GamePlayManagerScript.instance.player.isPause && !isDie && isAwake)
         {
             distance = DistanceToPlayer();
 
