@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// usefull to move city in background scene 
+/// </summary>
 public class PatternsManagerScript : MonoBehaviour
 {
     public List<Transform> patternsList;
@@ -10,7 +13,9 @@ public class PatternsManagerScript : MonoBehaviour
 
     
 
-    // Update is called once per frame
+    /// <summary>
+    /// set the first element in list (First city(Pattern)) in last element postion 
+    /// </summary>
     void Update()
     {
         if (CheckDestance())
@@ -21,7 +26,7 @@ public class PatternsManagerScript : MonoBehaviour
             currantPatterns = patternsList.FirstOrDefault();
         }
     }
-
+    
     public bool CheckDestance()
     {
         if (currantPatterns.position.z + 100 < GamePlayManagerScript.instance.player.transform.position.z)

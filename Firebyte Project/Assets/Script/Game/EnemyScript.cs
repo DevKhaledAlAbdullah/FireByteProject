@@ -8,14 +8,11 @@ public class EnemyScript : MonoBehaviour
     public bool isDie = false;
     public bool isAwake = false;
     public Collider swordCollider;
-    public float Line1 = 5;
-    public float Line2 = 0;
-    public float Line3 = -5;
     public float distance;
 
     private void Start()
     {
-        currentSpeed = GameManager.instance.SettingManager.gameSetting.speedEnemy;
+        currentSpeed = GameManager.instance.GameSettingManager.gameSetting.speedEnemy;
         GamePlayManagerScript.instance.enemyList.Add(this);
     }
 
@@ -60,11 +57,11 @@ public class EnemyScript : MonoBehaviour
                     transform.position.y,
                     transform.position.z + (currentSpeed * Time.fixedDeltaTime));
 
-                currentSpeed = GameManager.instance.SettingManager.gameSetting.speedEnemy;
+                currentSpeed = GameManager.instance.GameSettingManager.gameSetting.speedEnemy;
             }
             else
             {
-                currentSpeed = GameManager.instance.SettingManager.gameSetting.speedEnemy * 3;
+                currentSpeed = GameManager.instance.GameSettingManager.gameSetting.speedEnemy * 3;
             }
         }
         else
@@ -78,7 +75,10 @@ public class EnemyScript : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// calculate distance between player and Enemy.
+    /// </summary>
+    /// <returns></returns>
     public float DistanceToPlayer()
     {
         return Vector3.Distance(transform.position , GamePlayManagerScript.instance.player.transform.position);

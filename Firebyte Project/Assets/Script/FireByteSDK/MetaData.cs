@@ -1,4 +1,8 @@
-﻿public class MetaData { 
+﻿/// <summary>
+/// use full to save all variable inside the project that containe on read only value that not change 
+/// such as boolean and strings and enums.
+/// </summary>
+public class MetaData { 
 
     public class ConstVariable
     {

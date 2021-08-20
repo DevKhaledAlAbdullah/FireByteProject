@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// scriptable object class 
+/// </summary>
 public class GameSettingManager : ScriptableObject
 {
     public static GameSettingManager instance;
@@ -12,5 +15,4 @@ public class GameSettingManager : ScriptableObject
     }
 
     public GameCore.GameSettingData gameSetting = new GameCore.GameSettingData();
-    //public List<AlfucodeCore.VirtualItem> VI = new List<AlfucodeCore.VirtualItem>();
 }

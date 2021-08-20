@@ -12,9 +12,10 @@ public class GunScript : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        fireSpeed = GameManager.instance.SettingManager.gameSetting.speedShootRate;
+        fireSpeed = GameManager.instance.GameSettingManager.gameSetting.speedShootRate;
         InvokeRepeating(nameof(Shoot), 0, fireSpeed);
     }
+
 
     void Shoot()
     {

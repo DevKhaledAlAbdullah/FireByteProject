@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Image logoImage;
     public TMP_Text initializeText;
     public Transform mainCanvas;
-    public GameCore.FireByteSettingManagerRun SettingManager = new GameCore.FireByteSettingManagerRun();
+    public GameCore.FireByteSettingManagerRun GameSettingManager = new GameCore.FireByteSettingManagerRun();
     /// <summary>
     /// usefull to create Actions inside our script.
     /// </summary>
@@ -29,10 +29,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-
+        //To slider initalizer we can use it when we connect by APIs
         initializerImage.DOFillAmount(1 , 2.5f).OnComplete(TriggerGameScene);
         GameCore core = new GameCore();
-        SettingManager = core.ReadManagerSetting();
+        GameSettingManager = core.ReadManagerSetting();
     }
 
    

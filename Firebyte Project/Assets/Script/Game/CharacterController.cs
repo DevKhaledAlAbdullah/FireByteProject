@@ -117,7 +117,10 @@ public class CharacterController : MonoBehaviour
                 gun.LookAt(getClosetOne);
         }
     }
-
+    /// <summary>
+    /// calclate all enemy in level and distance each on one the player.
+    /// </summary>
+    /// <returns></returns>
     public Transform CalculateClosestEnemy()
     {
         List<float> distanceEnemy = new List<float>();
