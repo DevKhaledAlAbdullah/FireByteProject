@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -16,13 +17,12 @@ public class CharacterController : MonoBehaviour
     public float currentSpeed = 5;
     public float speedMoveLeftRight = 2f;
     public bool isHitObstacles = false;
-
+    public Transform gun;
     // Start is called before the first frame update
     void Start()
     {
         isPause = true;
         rb = GetComponent<Rigidbody>();
-        //anim.transform.rotation = Quaternion.Euler(-90, 25, 0);
         GamePlayManagerScript.instance.OnStartGame -= OnStartGame;
         GamePlayManagerScript.instance.OnStartGame += OnStartGame;
 
@@ -32,7 +32,7 @@ public class CharacterController : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(MetaData.ConstVariable.GameSetting.Obstacles))
+        if (collision.gameObject.CompareTag(MetaData.ConstVariable.GameSetting.Obstacles) && !isPause)
         {
             animator.SetBool(MetaData.ConstVariable.Animation.isHit, true);
             Invoke(nameof(StopHitAnimation), 0.3f);
@@ -111,6 +111,25 @@ public class CharacterController : MonoBehaviour
                 animator.SetBool(MetaData.ConstVariable.Animation.isRun, true);
             }
             #endregion
+
+            var getClosetOne = CalculateClosestEnemy();
+            if(getClosetOne != null)
+                gun.LookAt(getClosetOne);
         }
+    }
+
+    public Transform CalculateClosestEnemy()
+    {
+        List<float> distanceEnemy = new List<float>();
+        foreach (var item in GamePlayManagerScript.instance.enemyList)
+        {
+            if (item.isAwake)
+                distanceEnemy.Add(Vector3.Distance(item.transform.position, transform.position));
+            else
+                distanceEnemy.Add(1000);
+        }
+
+        int index = distanceEnemy.IndexOf(distanceEnemy.Min());
+        return GamePlayManagerScript.instance.enemyList[index].transform;
     }
 }

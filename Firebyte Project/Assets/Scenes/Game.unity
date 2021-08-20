@@ -1415,6 +1415,7 @@ MonoBehaviour:
   currentSpeed: 10
   speedMoveLeftRight: 10
   isHitObstacles: 0
+  gun: {fileID: 2098922403}
 --- !u!54 &661930483
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1863,6 +1864,7 @@ MonoBehaviour:
   player: {fileID: 661930482}
   startLine: {fileID: 1704353887}
   finishLine: {fileID: 7336779060144219949}
+  enemyList: []
   fireRedParticle: {fileID: 606881749}
   firePurpleParticle: {fileID: 359860086}
   fullDieParticle: {fileID: 19844352, guid: 632339e29e2ddd64aab6f9dd68facc82, type: 3}
@@ -2698,6 +2700,7 @@ GameObject:
   - component: {fileID: 1549136134}
   - component: {fileID: 1549136133}
   - component: {fileID: 1549136132}
+  - component: {fileID: 1549136135}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -2816,6 +2819,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549136130}
   m_CullTransparentMesh: 0
+--- !u!114 &1549136135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549136130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064462496f1029e419cc82ae2b69a753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1551655534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3381,6 +3396,7 @@ GameObject:
   - component: {fileID: 2028530090}
   - component: {fileID: 2028530089}
   - component: {fileID: 2028530088}
+  - component: {fileID: 2028530091}
   m_Layer: 5
   m_Name: RepateButton
   m_TagString: Untagged
@@ -3499,6 +3515,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028530086}
   m_CullTransparentMesh: 0
+--- !u!114 &2028530091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028530086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064462496f1029e419cc82ae2b69a753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2065796046
 GameObject:
   m_ObjectHideFlags: 0

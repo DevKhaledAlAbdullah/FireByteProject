@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-public class AnimationScaller : MonoBehaviour
+public class AnimationScaler : MonoBehaviour
 {
     private float duration = 0.5f;
 

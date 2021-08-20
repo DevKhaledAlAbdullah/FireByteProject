@@ -12,20 +12,20 @@ public class EnemyScript : MonoBehaviour
     public float Line2 = 0;
     public float Line3 = -5;
     public float distance;
-    
-    
+
+    private void Start()
+    {
+        GamePlayManagerScript.instance.enemyList.Add(this);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag(MetaData.ConstVariable.GameSetting.Bullet) && !isDie)
         {
-            blood -= 50;
-            if (blood <= 0)
-            {
-                animator.SetBool(MetaData.ConstVariable.Animation.isDie, true);
-                var particleDie = Instantiate(GamePlayManagerScript.instance.fullDieParticle, transform.position, Quaternion.identity);
-                particleDie.Play();
-                isDie = true;
-            }
+            animator.SetBool(MetaData.ConstVariable.Animation.isDie, true);
+            var particleDie = Instantiate(GamePlayManagerScript.instance.fullDieParticle, transform.position, Quaternion.identity);
+            particleDie.Play();
+            isDie = true;
         }
     }
 

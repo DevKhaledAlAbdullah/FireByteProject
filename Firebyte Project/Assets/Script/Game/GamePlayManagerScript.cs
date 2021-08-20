@@ -18,7 +18,7 @@ public class GamePlayManagerScript : MonoBehaviour
     public CharacterController player;
     public Transform startLine;
     public Transform finishLine;
-
+    public List<EnemyScript> enemyList;
     [Header("In Partical System")]
     public ParticleSystem fireRedParticle;
     public ParticleSystem firePurpleParticle;
