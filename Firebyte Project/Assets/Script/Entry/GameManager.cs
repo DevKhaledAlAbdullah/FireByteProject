@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public Image logoImage;
     public TMP_Text initializeText;
     public Transform mainCanvas;
-
+    public GameCore.FireByteSettingManagerRun SettingManager = new GameCore.FireByteSettingManagerRun();
     /// <summary>
     /// usefull to create Actions inside our script.
     /// </summary>
@@ -31,8 +31,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         initializerImage.DOFillAmount(1 , 2.5f).OnComplete(TriggerGameScene);
-
+        GameCore core = new GameCore();
+        SettingManager = core.ReadManagerSetting();
     }
+
+   
 
     private void TriggerGameScene()
     {

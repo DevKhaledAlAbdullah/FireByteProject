@@ -15,6 +15,7 @@ public class EnemyScript : MonoBehaviour
 
     private void Start()
     {
+        currentSpeed = GameManager.instance.SettingManager.gameSetting.speedEnemy;
         GamePlayManagerScript.instance.enemyList.Add(this);
     }
 
@@ -59,11 +60,11 @@ public class EnemyScript : MonoBehaviour
                     transform.position.y,
                     transform.position.z + (currentSpeed * Time.fixedDeltaTime));
 
-                currentSpeed = 5;
+                currentSpeed = GameManager.instance.SettingManager.gameSetting.speedEnemy;
             }
             else
             {
-                currentSpeed = 15;
+                currentSpeed = GameManager.instance.SettingManager.gameSetting.speedEnemy * 3;
             }
         }
         else
